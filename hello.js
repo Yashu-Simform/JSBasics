@@ -40,6 +40,8 @@ console.log(xv)
     -   Block Scope (respected by let, const)
 --------------------------------------------*/
 
+//  Google V8 - fastest JS engine
+
 
 /*
         Hoisting :
@@ -59,8 +61,9 @@ console.log(xv)
 */
 
 
-//--------------------  Function Currying
+
 /*
+	Function Currying:
 function add(x){
     return function (y){
         console.log(x+y)
@@ -114,6 +117,101 @@ add2(3)
         -   function (x, y){ return (x+y)}
 
 
-        First Class Function or First Class Functions:
+        First Class Function or First Class Citizens:
         -   Ability of a function to be passed as VALUE inside the function or to get returned by any function is known as First Class Function.
+
+
+        Higher Order Functions:
+        -   Function which takes another function as an argument or returns another function is called higher order function.
+*/
+
+
+
+/*
+        Callback Functions:
+        +   The functions which are passed as values to another function and gets called after execution of that function are known as CallBack Functions.
+        +   CallBack Functions can be called Synchronously or Asynchronously.
+        +   function x(y){
+                console.log('Hey!, x function is executing')
+                y();
+            }
+
+            x(
+                function(){
+                    console.log('Hey!, y function is executing')
+                }
+            );
+*/
+
+
+
+/*
+        Event Listners:
+        +   Event Listners are used to perform certain actions on occurence of certain events (events like "click", "hover", "focus", "blur", etc)
+        +   Event Listner is added to a web-page to listen to events performed by the user  on that web page.
+        +   It takes a CallBack function as an argument which is called when a specified event occurs.
+        +   eg.
+                const button = document.createElement('button')
+                
+                button.addEventListner('click', function(){console.log('Button is clicked!')})
+
+        +   This event listner is get registered and will remain until we remove it explicitly. Thus it takes up and reserves a memory for it and 
+            thus large number of call backs may lead to slow down the program.
+*/
+
+
+/*
+        Web API's:
+        -   Provided by the browsers to the JS engine
+        -   API's like
+            -   DOM API's
+            -   fetch()
+            -   setTimeout()
+            -   console
+*/
+
+
+/* 
+        Event Loop:
+        +   The CallBack functions when need to be called are firstly pushed into the callback queue.
+        +   The Event Loop is like a gatekeeper which checks whether the CallStack is empty or not, if it is empty, event loop pushes the callback function call 
+            from the callback queue to callstack.  
+        +   eg.
+                const button = document.createElement('button')
+                
+                button.addEventListner('click', function(){console.log('Button is clicked!')})
+
+                If the button is clicked multiple time then the callback function also have multiple calls which then need to be queued.
+
+        |             |                                             CallBack Queue
+        |             |               ---------                     ------------------------------------------------
+        |             |   <---------  | Event |   ------>       
+        |             |   <---------  | Loop  |   ------>
+        |             |               ---------  
+        |_____________|                                             ------------------------------------------------
+           Call Stack
+
+                                                                    Microtask queue
+                                                                    --------------------------------------------------
+
+                                                                        higher priority than callback queue
+                                                                    --------------------------------------------------
+*/
+
+
+
+/*
+        Promise:
+        -   Helps to achieve asynchronous programming.
+
+
+
+                                                        "I Promise a Result!"
+
+                                            "Producing code" is code that can take some time
+
+                                            "Consuming code" is code that must wait for the result
+
+                                            A Promise is an Object that links Producing code and Consuming code
+
 */
